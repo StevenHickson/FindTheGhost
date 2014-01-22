@@ -29,10 +29,10 @@ int main() {
 	Mat test = imread("../snaptcha.png"), test_g;
 	//I need to split this into 9 images.
 	int h_div = test.rows / 3, w_div = test.cols / 3;
-	for(int i = 0; i < 3; i++) {
-		for(int j = 0; j < 3; j++) {
-			cout << i << ", " << j;
-			Mat subimg = test(Rect(i*w_div,j*h_div,w_div,h_div));
+	for(int x = 0; x < 3; x++) {
+		for(int y = 0; y < 3; y++) {
+			cout << x << ", " << y;
+			Mat subimg = test(Rect(x*w_div,y*h_div,w_div,h_div));
 			cvtColor(subimg, test_g, CV_BGR2GRAY);
 			threshold(test_g,test_g,230,255,THRESH_BINARY);
 			//feature stuff again
